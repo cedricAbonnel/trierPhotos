@@ -8,7 +8,9 @@ Fichier LOG générés dans le dossier courant avec le nom de format 'trierPhoto
 
 ## Pré requis
 
-  dnf install php-cli
+```
+dnf install php-cli
+```
 
 ## Installer
 
