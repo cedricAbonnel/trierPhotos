@@ -6,16 +6,17 @@ Si le fichier existe déjà (comparaison par hash du fichier complet), alors il 
 
 Fichier LOG générés dans le dossier courant avec le nom de format 'trierPhotos_YmdHis'
 
-Pré requis
-==
+## Pré requis
+
   dnf install php-cli
 
-Installer
-==
+## Installer
+
 Déposer le fichier **trierPhotos.php** dans ''/usr/bin/''
 
-Execution
-==
-  php /usr/bin/trierPhotos.php
-ou
-  trierPhotos.php
+## Execution
+
+```
+php /usr/bin/trierPhotos.php
+```
+
