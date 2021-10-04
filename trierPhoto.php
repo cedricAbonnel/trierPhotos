@@ -1,4 +1,4 @@
-<?php
+#!/usr/bin/php
 
 if ($handle = opendir('.')) {
 
