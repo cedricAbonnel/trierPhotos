@@ -1,10 +1,10 @@
 # trierPhotos
 
-Script qui permet de scanner les fichiers du dossier courant.
-Si le fichier est de format 'video' ou 'photo', il est déplacer dans le sous-dossier correspondant à la date de la prise de vue.
+Script PHP qui permet de scanner les fichiers de type video et photo du dossier courant.
+Le fichier est déplacé dans le sous-dossier correspondant à la date de la prise de vue au format 'Y/m'.
 Si le fichier existe déjà (comparaison par hash du fichier complet), alors il est supprimé.
 
-Fichier LOG générés dans le dossier courant avec le nom de format 'trierPhotos_YmdHis'
+Fichiers LOG générés dans le dossier courant avec le nom de format 'trierPhotos_YmdHis'
 
 ## Pré requis
 
