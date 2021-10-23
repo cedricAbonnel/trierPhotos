@@ -1,4 +1,4 @@
-#!/usr/bin/php
+<?PHP
 
 if ($handle = opendir('.')) {
 
@@ -14,6 +14,7 @@ if ($handle = opendir('.')) {
         unset($dateTimeOriginal_explode);
         $traitement_ok = false;
 
+	$message='';
         $file_img_ok = false;
         $file_vid_ok = false;
         $file_exif_ok = false;
@@ -43,8 +44,8 @@ if ($handle = opendir('.')) {
 
             // Afficher le nom du fichier
             if ($traitement_ok) {
-                echo "\n";
-                echo $entry."\n";
+                $message .=  "\n";
+                $message .= $entry."\n";
             }
 
 
@@ -63,6 +64,7 @@ if ($handle = opendir('.')) {
                         $dateTimeOriginal['d'] = explode(" ", $dateTimeOriginal_explode[2])[0];
                     }
                 }
+		$message .= "     Traitement sur date EXIF";
                 
             }
 
@@ -85,6 +87,8 @@ if ($handle = opendir('.')) {
                     $dateTimeOriginal['d']=substr($entry,17,2);
 
                 }
+
+		$message .= "Traitement sur nom du fichier";
 
             }
             
@@ -125,14 +129,15 @@ if ($handle = opendir('.')) {
 		$file_dest = $rep_dest."/".$entry;
 		if (!file_exists($file_dest)) {
         	        rename($entry, $file_dest);
+			$message .= "     => ".$file_dest."\n";
 		} else {
 			$md5_file_src = md5_file($entry);
 			$md5_file_dst = md5_file($file_dest);
 			if ($md5_file_src == $md5_file_dst) {
-				$message = " [ERREUR] ".$file_dest." existe déjà ! Destruction car même empreinte $md5_file_src / $md5_file_dst\n";
+				$message .= "     [ERREUR] ".$file_dest." existe déjà ! Destruction car même empreinte $md5_file_src / $md5_file_dst\n";
 				unlink($entry);
 			} else {
-				$message = " [ERREUR] ".$file_dest." existe déjà !\n";
+				$message .= "     [ERREUR] ".$file_dest." existe déjà !\n";
 			}
 			
 		}
